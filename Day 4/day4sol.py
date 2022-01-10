@@ -13,7 +13,7 @@ egnums = [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 boards = np.genfromtxt('C:\\Users\\rikpatel\\advent-of-code\\Day 4\\input.txt', delimiter = None)
 example = np.genfromtxt('C:\\Users\\rikpatel\\advent-of-code\\Day 4\\example.txt', delimiter = None)
 fifteen = np.arange(0,15,5)
-print(fifteen)
+
 fives = np.arange(0,500,5)
 array_boards = []
 for i in fives:
@@ -26,7 +26,7 @@ for i in fifteen:
     egboards.append(board)
     
     
-print(egboards[2][4,3])
+
 
 #print(array_boards[0])
 
@@ -40,7 +40,7 @@ print(egboards[2][4,3])
 # array_boards[0][:,0] = [ 5. 39. 87. 66. 91.]
 #if ([5,39,87,66,91]) == (array_boards[0][:,0]).tolist():
     #print('hi')
-    
+'''    
 for i in egnums:
     for j in egboards:
         
@@ -61,14 +61,14 @@ for i in egnums:
     else:
         continue
     break
+'''
 
 
 
 
-
-
+'''
 for i in numbers:
-    for j in array_boards:
+    for count, j in enumerate(array_boards):
         
         j[j == i] = -1
             
@@ -87,6 +87,54 @@ for i in numbers:
     else:
         continue
     break
+'''
+
+for i in numbers:
+    for count, j in enumerate(array_boards):
+        
+        j[j == i] = -1
+            
+        for r in range(5):
+            if [-1,-1,-1,-1,-1] == j[r].tolist() or [-1,-1,-1,-1,-1] == j[:,r].tolist():
+                array_boards.pop(count)
+                print(len(array_boards))
+                
+        if len(array_boards) == 0:
+            print(j)
+            print(i)
+            break
+        else:
+            continue
+        break
+    else:
+        continue
+    break
+
+################################# part 2
+for i in egnums:
+    for count, j in enumerate(egboards):
+        
+        j[j == i] = -1
+            
+        for r in range(5):
+            if [-1,-1,-1,-1,-1] == j[r].tolist() or [-1,-1,-1,-1,-1] == j[:,r].tolist():
+                egboards.pop(count)
+                print(len(egboards))
+        if len(egboards) == 0:
+            print(j)
+            print(i)
+            break
+        else:
+            continue
+        break
+    else:
+        continue
+    break
+                
+        
+
+    
+
 
  
 
